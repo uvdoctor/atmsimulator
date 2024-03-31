@@ -9,8 +9,6 @@ const nextConfig = {
       remotes: {},
       filename: 'static/chunks/remoteEntry.js',
       exposes: {
-        // './title': './components/exposedTitle.js',
-        // './checkout': './pages/checkout',
         './description': '@/components/description.js',
       },
       shared: {
