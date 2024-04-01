@@ -1,5 +1,6 @@
 import React from 'react';
+import styles from "@/styles/Home.module.css";
 
 export default function Description() {
-    return <div>This is account balance MFE changing once again in prod!!!</div>
+    return <div className={styles.description}>Account Balance MFE</div>
 }

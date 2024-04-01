@@ -4,6 +4,9 @@ import { NextFederationPlugin } from '@module-federation/nextjs-mf';
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    forceSwcTransforms: true,
+  },
   webpack: function(config, {isServer}) {
     config.plugins.push(
       new NextFederationPlugin({
