@@ -1,10 +1,15 @@
+import { lazy } from 'react';
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import Description from "balance/description";
+//@ts-ignore
+//import Description from "balance/description";
 import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+//@ts-ignore
+const Description = lazy(() => import('balance/description'));
 
 /*export async function getStaticProps(context: any) {
   return {
@@ -52,7 +57,7 @@ export default function Home() {
         </div>
 
         
-          <Description />
+          <Description suppressHydrationWarning />
       
         <div className={styles.center}>
           <Image

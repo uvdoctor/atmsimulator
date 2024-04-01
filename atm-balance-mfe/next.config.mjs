@@ -12,7 +12,6 @@ const nextConfig = {
         './description': '@/components/description.js',
       },
       shared: {
-        // whatever else
       },
       extraOptions: {
         exposePages: true, // `false` by default

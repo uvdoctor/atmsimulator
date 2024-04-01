@@ -9,17 +9,18 @@ const nextConfig = {
       new NextFederationPlugin({
         name: 'shell',
         remotes: {
-          balance: `balance@http://localhost:3001/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+          balance: `balance@${process.env.BALANCE_MFE_URL}/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
         },
         filename: 'static/chunks/remoteEntry.js',
         exposes: {},
         shared: {
           // whatever else
-        },
+        }, 
         extraOptions: {
           exposePages: true, // `false` by default
           enableImageLoaderFix: true, // `false` by default
           enableUrlLoaderFix: true, // `false` by default
+          automaticPageStitching: true,
         },
       })
     );
