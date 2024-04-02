@@ -9,6 +9,7 @@ import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
 import { useEffect } from "react";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +34,6 @@ export default function Dashboard({ isProduction }: DashboardProps) {
   const { logout } = useAuth();
   
   async function handleDone() {
-        console.log("Going to remove cookie");
         logout();
         router.replace('/');
         await fetch('/api/logout', {
@@ -73,37 +73,27 @@ export default function Dashboard({ isProduction }: DashboardProps) {
           /> 
           
         </div> */}
-        <Description />
         <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <button
+              className={styles.card}
+            onClick={() => {console.log("button clicked")}}>
             <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+                Check account balance
+              </h2>
+            </button>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-      </div>
-      <button onClick={handleDone}>Done</button>
+            <button
+              className={styles.card}
+              onClick={() => {console.log("button clicked")}}
+            >
+              <h2>
+                Withdraw cash
+              </h2>
+            </button>
+        </div>
+          <button className={styles.card} onClick={handleDone}>
+            <h2>Done</h2>
+          </button>
         {/* @ts-ignore */}
         {isProduction && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
       </main>

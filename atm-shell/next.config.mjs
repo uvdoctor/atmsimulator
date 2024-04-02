@@ -12,11 +12,11 @@ const nextConfig = {
     return [
       {
         source: "/api/login",
-        destination: "/api/auth/login",
+        destination: process.env.LOGIN_API,
       },
       {
         source: "/api/logout",
-        destination: "/api/auth/logout",
+        destination: process.env.LOGOUT_API,
       },
     ];
   },
