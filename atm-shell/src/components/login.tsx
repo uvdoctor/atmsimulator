@@ -8,10 +8,11 @@ export default function Login() {
     const { login } = useAuth();
     const [attempts, setAttempts] = useState<number>(1);
     const [errorText, setErrorText] = useState<string>("");
+    const [buttonDisabled, setButtonDisabled] = useState<boolean>(false);
  
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
-    
+        setButtonDisabled(true);
         const formData = new FormData(event.currentTarget)
         const username = formData.get('username')
         const pin = formData.get('pin')
@@ -39,6 +40,7 @@ export default function Login() {
                 setErrorText("Sorry, 3 attempts exhausted. Please contact the bank for further assistance");
                 sendGAEvent("event", "user-blocked", { value: "User blocked after 3 attempts" });
             }
+            setButtonDisabled(false);
         }
     }
     
@@ -47,7 +49,7 @@ export default function Login() {
             <form onSubmit={handleSubmit}>
                 <input type="hidden" name="username" value="1"  />
                 <input type="text" name="pin" placeholder="Pin" required autoComplete="off" />
-                <p><button type="submit">Login</button></p>
+                <p><button type="submit" disabled={buttonDisabled}>Login</button></p>
             </form>
             <p>{errorText}</p>
         </div>

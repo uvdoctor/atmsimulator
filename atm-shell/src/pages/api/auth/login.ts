@@ -13,7 +13,7 @@ export default async function handler(
       console.log("Going to set cookie as pin is valid");
       res.setHeader(
         'Set-Cookie',
-        cookie.serialize('token', username, {
+        cookie.serialize('token', `${username}:0`, {
           httpOnly: true,
           secure: process.env.NODE_ENV !== 'development',
           maxAge: 60, // 1 minute
