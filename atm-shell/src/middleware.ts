@@ -11,7 +11,10 @@ export function middleware(request: NextRequest) {
     return Response.redirect(new URL('/', request.url));
   }  
   if (pathname == '/checkbalance') {
-    return Response.redirect(new URL(`${process.env.ACCOUNT_HTTP_URL}/checkbalance`, request.url));
+    return Response.redirect(new URL(`${process.env.ACCOUNT_MFE_URL}/checkbalance`, request.url));
+  }
+  if (pathname == '/withdrawcash') {
+    return Response.redirect(new URL(`${process.env.ACCOUNT_MFE_URL}/withdrawcash`, request.url));
   }
 }
  

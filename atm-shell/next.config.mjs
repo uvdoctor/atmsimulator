@@ -18,10 +18,6 @@ const nextConfig = {
         source: "/api/logout",
         destination: process.env.LOGOUT_API,
       },
-      {
-        source: "/checkbalance",
-        destination: "http://localhost:3001/checkbalance",
-      },
     ];
   },
   webpack: function(config, {isServer}) {
@@ -29,7 +25,7 @@ const nextConfig = {
       new NextFederationPlugin({
         name: 'shell',
         remotes: {
-          balance: `balance@${process.env.BALANCE_MFE_URL}/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+          account: `account@${process.env.ACCOUNT_MFE_URL}/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
         },
         filename: 'static/chunks/remoteEntry.js',
         exposes: {},

@@ -8,11 +8,12 @@ const nextConfig = {
   },
   webpack: function(config, {isServer}) {
     const federationConfig = {
-      name: 'balance',
+      name: 'account',
       remotes: {},
       filename: 'static/chunks/remoteEntry.js',
       exposes: {
-        './balancebutton': '@/components/balancebutton'
+        './balancebutton': '@/components/balancebutton',
+        './cashbutton': '@/components/cashbutton'
       },
       shared: {
       },

@@ -3,13 +3,13 @@ import { revalidate } from '@module-federation/nextjs-mf/utils';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from "next/font/google";
 //@ts-ignore
-import BalanceButton from "balance/balancebutton";
+import BalanceButton from "account/balancebutton";
+//@ts-ignore
+import CashButton from "account/cashbutton";
 import styles from "@/styles/Home.module.css";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
-import { useEffect } from "react";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -74,16 +74,8 @@ export default function Dashboard({ isProduction }: DashboardProps) {
           
         </div> */}
         <div className={styles.grid}>
-          <BalanceButton />
-
-            <button
-              className={styles.card}
-              onClick={() => {console.log("button clicked")}}
-            >
-              <h2>
-                Withdraw cash
-              </h2>
-            </button>
+        <BalanceButton />
+          <CashButton />
         </div>
           <button className={styles.card} onClick={handleDone}>
             <h2>Done</h2>

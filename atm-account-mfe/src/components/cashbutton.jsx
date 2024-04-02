@@ -3,12 +3,12 @@ import React from 'react';
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 
-export default function BalanceButton() {
+export default function CashButton() {
     return (
-        <Link href={'/checkbalance'}
+        <Link href={'/withdrawcash'}
               className={styles.card}>
             <h2>
-                Check account balance
+                Withdraw cash
             </h2>
         </Link>
     )
