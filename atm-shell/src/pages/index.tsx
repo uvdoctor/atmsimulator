@@ -1,18 +1,16 @@
-import { lazy } from 'react';
 import Head from "next/head";
 import Image from "next/image";
 import { revalidate } from '@module-federation/nextjs-mf/utils';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from "next/font/google";
 //@ts-ignore
-//import Description from "balance/description";
+import Description from "balance/description";
 import styles from "@/styles/Home.module.css";
 import { NextPageContext } from 'next';
+import Login from '@/components/login';
+import LoginButton from "@/components/loginbutton";
 
 const inter = Inter({ subsets: ["latin"] });
-
-//@ts-ignore
-const Description = lazy(() => import('balance/description'));
 
 /*export async function getStaticProps(context: any) {
   return {
@@ -48,10 +46,10 @@ export default function Home({ isProduction }: HomeProps) {
         <title>MyBank ATM</title>
         <meta name="description" content="MyBank ATM" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-          <div className={styles.description}>
+          {/* <div className={styles.description}>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
@@ -67,10 +65,10 @@ export default function Home({ isProduction }: HomeProps) {
                 priority
               />
             </a>
-          </div>
+          </div> */}
 
-          <Description />
-      
+        <Description />
+        <LoginButton />
         <div className={styles.center}>
           <Image
             className={styles.logo}
@@ -79,7 +77,8 @@ export default function Home({ isProduction }: HomeProps) {
             width={180}
             height={37}
             priority
-          />
+          /> 
+          
         </div>
 
         <div className={styles.grid}>
