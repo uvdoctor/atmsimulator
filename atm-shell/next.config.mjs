@@ -8,6 +8,18 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/login",
+        destination: "/api/auth/login",
+      },
+      {
+        source: "/api/logout",
+        destination: "/api/auth/logout",
+      },
+    ];
+  },
   webpack: function(config, {isServer}) {
     config.plugins.push(
       new NextFederationPlugin({
@@ -24,7 +36,6 @@ const nextConfig = {
           exposePages: true, // `false` by default
           enableImageLoaderFix: true, // `false` by default
           enableUrlLoaderFix: true, // `false` by default
-          automaticPageStitching: true,
         },
       })
     );
