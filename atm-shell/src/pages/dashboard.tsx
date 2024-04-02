@@ -3,7 +3,7 @@ import { revalidate } from '@module-federation/nextjs-mf/utils';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from "next/font/google";
 //@ts-ignore
-import Description from "balance/description";
+import BalanceButton from "balance/balancebutton";
 import styles from "@/styles/Home.module.css";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
@@ -74,13 +74,7 @@ export default function Dashboard({ isProduction }: DashboardProps) {
           
         </div> */}
         <div className={styles.grid}>
-          <button
-              className={styles.card}
-            onClick={() => {console.log("button clicked")}}>
-            <h2>
-                Check account balance
-              </h2>
-            </button>
+          <BalanceButton />
 
             <button
               className={styles.card}

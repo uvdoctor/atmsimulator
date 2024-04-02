@@ -12,7 +12,7 @@ const nextConfig = {
       remotes: {},
       filename: 'static/chunks/remoteEntry.js',
       exposes: {
-        './description': '@/components/description.js',
+        './balancebutton': '@/components/balancebutton'
       },
       shared: {
       },

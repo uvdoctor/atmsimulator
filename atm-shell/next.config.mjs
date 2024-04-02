@@ -18,6 +18,10 @@ const nextConfig = {
         source: "/api/logout",
         destination: process.env.LOGOUT_API,
       },
+      {
+        source: "/checkbalance",
+        destination: "http://localhost:3001/checkbalance",
+      },
     ];
   },
   webpack: function(config, {isServer}) {
