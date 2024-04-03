@@ -1,9 +1,7 @@
-import { revalidate } from '@module-federation/nextjs-mf/utils';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from "next/font/google";
 //@ts-ignore
 import styles from "@/styles/Home.module.css";
-import { NextPageContext } from 'next';
 import Login from '@/components/login';
 import Head from 'next/head';
 
@@ -13,14 +11,7 @@ interface HomeProps {
   isProduction: boolean
 }
 
-export const getStaticProps = (async (context: NextPageContext) => {
-  if (context?.pathname && !context?.pathname?.endsWith('_error')) {
-    await revalidate().then((shouldUpdate) => {
-      if (shouldUpdate) {
-        console.log('Hot Module Replacement (HMR) activated', shouldUpdate);
-      }
-    });
-  }
+export const getStaticProps = (async () => {
   const isProduction = process.env.NODE_ENV === "production";
   return { props: {isProduction} };
 });
@@ -36,6 +27,7 @@ export default function Home({ isProduction }: HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
+        <h2 className={styles.description}>Welcome to MyBank ATM</h2>
         <Login /> 
         {/* @ts-ignore */}
         {isProduction && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}

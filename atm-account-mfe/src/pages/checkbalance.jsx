@@ -1,13 +1,12 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { Inter } from "next/font/google";
-import { useEffect, Suspense, useState } from "react";
-import Loading from "@/components/loading";
 import Balance from "@/components/balance";
+import TransactAgain from '@/components/transactagain';
 
 const inter = Inter({ subsets: ["latin"] });
   
-export default function CheckBalance({ data }) {
+export default function CheckBalance() {
   
   return (
     <>
@@ -18,9 +17,8 @@ export default function CheckBalance({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <Suspense fallback={<Loading />}>
           <Balance />
-        </Suspense>
+        <TransactAgain />
       </main>
     </>
   );

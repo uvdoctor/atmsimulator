@@ -46,6 +46,7 @@ export default function Login() {
     
     return (
         <div>
+            <p>Please enter the pin for accessing your bank account</p>
             <form onSubmit={handleSubmit}>
                 <input type="hidden" name="username" value="1"  />
                 <input type="text" name="pin" placeholder="Pin" required autoComplete="off" />
