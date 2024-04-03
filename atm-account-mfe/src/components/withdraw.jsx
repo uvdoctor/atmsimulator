@@ -8,25 +8,32 @@ export default function Balance() {
     const [withdrawAmt, setWithdrawAmt] = useState("");
     const [newBalance, setNewBalance] = useState("");
     
-    const handleWithdraw = async (event) => {
+  const handleWithdraw = async (event) => {
         event.preventDefault()
         setButtonDisabled(true);
         const formData = new FormData(event.currentTarget)
-        const amount = formData.get('amount')
-        const res = await fetch('/api/withdraw', {
+    const amount = formData.get('amount')
+    try {
+const res = await fetch('/api/withdraw', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ reqAmt: amount }),
         })
         const data = await res.json();
+        console.log("Response: ", data);
         if (res.ok) {
             sendGAEvent("event", "cash-withdrawal", { value: "User has withdrawn cash" });
             setNewBalance(data.newBalance);
             setWithdrawAmt(data.withdrawAmt);
         } else {
-            sendGAEvent("event", "cash-withdrawal-error", { value: "User failed to withdraw cash" });
+            sendGAEvent("event", "cash-withdrawal-user-error", { value: "User failed to withdraw cash" });
             setErrorText(data.message);
         }
+    } catch (e) {
+      sendGAEvent("event", "cash-withdrawal-service-error", { value: "User failed to withdraw cash due to service error" });
+      setErrorText("An unexpected error occurred. Please try again after some time.");
+    }
+        
     };
 
   return (
