@@ -42,6 +42,7 @@ export default function Balance() {
           placeholder="10"
           required
           autoComplete="off"
+          step={10}
         />
         <p>
           <button type="submit" disabled={buttonDisabled} className={styles.card}>
