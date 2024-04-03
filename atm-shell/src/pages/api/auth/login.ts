@@ -10,10 +10,9 @@ export default async function handler(
   if (req.method === 'POST') {
     const { username, pin } = req.body
     if (signIn(username, pin)) {
-      console.log("Going to set cookie as pin is valid");
       res.setHeader(
         'Set-Cookie',
-        cookie.serialize('token', `${username}:0`, {
+        cookie.serialize('token', username, {
           httpOnly: true,
           secure: process.env.NODE_ENV !== 'development',
           maxAge: 60, // 1 minute

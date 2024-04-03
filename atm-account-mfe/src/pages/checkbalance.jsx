@@ -1,10 +1,14 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { Inter } from "next/font/google";
+import { useEffect, Suspense, useState } from "react";
+import Loading from "@/components/loading";
+import Balance from "@/components/balance";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+  
+export default function CheckBalance({ data }) {
+  
   return (
     <>
       <Head>
@@ -14,7 +18,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        Display list of accounts
+        <Suspense fallback={<Loading />}>
+          <Balance />
+        </Suspense>
       </main>
     </>
   );
