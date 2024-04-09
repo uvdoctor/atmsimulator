@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import styles from "@/styles/Home.module.css";
 import { sendGAEvent } from "@next/third-parties/google";
+import TransactAgain from "./transactagain";
+import Link from "next/link";
 
 export default function Balance() {
   const [errorText, setErrorText] = useState("");
@@ -44,34 +45,57 @@ export default function Balance() {
 
   return (
     <div>
-      <p>
-        Please enter an amount in pounds, which is multiple of 10. Maximum
-        amount that can be withdrawn is 500 pounds.
-      </p>
-      <form onSubmit={handleWithdraw}>
-        <input
-          type="number"
-          name="amount"
-          placeholder="10"
-          required
-          autoComplete="off"
-          step={10}
-          min={10}
-          max={500}
-        />
-        <p>
-          <button
-            type="submit"
-            disabled={buttonDisabled}
-            className={styles.card}
-          >
+      {!withdrawAmt && !errorText ? (
+        <form onSubmit={handleWithdraw}>
+          <label>Please enter an amount in multiple of 10: </label>
+          <br />
+          <br />
+          <input
+            type="number"
+            name="amount"
+            placeholder="10"
+            required
+            autoComplete="off"
+            step={10}
+            min={10}
+            max={500}
+            className="input"
+          />
+          <span>&nbsp;pounds</span>
+          <br />
+          <br />
+          <br />
+          <br />
+          <b>You can withdraw maximum 500 pounds.</b>
+          <br />
+          <br />
+          <button type="submit" disabled={buttonDisabled} className="button">
             Withdraw
           </button>
-        </p>
-      </form>
-      <p>{errorText}</p>
-      {withdrawAmt && (
-        <p>{`You have withdrawn ${withdrawAmt} pounds. New balance in your account is ${newBalance} pounds.`}</p>
+          &nbsp;&nbsp;&nbsp;
+          <Link href="http://localhost:3000">
+            Cancel
+          </Link>
+        </form>
+      ) : (
+        <div>
+          {withdrawAmt ? (
+            <p>
+              <label>You have withdrawn {withdrawAmt} pounds.</label>
+              <br />
+              <br />
+              <label>New balance in your account is {newBalance} pounds.</label>
+              <br />
+              <br />
+            </p>
+          ) : (
+                <p className="error">
+                  <label className="error">{errorText}</label>
+                  <br/><br/>
+                </p>
+          )}
+          <TransactAgain />
+        </div>
       )}
     </div>
   );

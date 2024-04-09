@@ -4,8 +4,7 @@ import styles from "@/styles/Home.module.css";
 
 export default function TransactAgain() {
     return (
-        <Link href={"http://localhost:3000"}
-              className={styles.card}>
+        <Link href={"http://localhost:3000"} className="button">
             <h2>
                 Transact again
             </h2>
