@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, act } from "@testing-library/react";
 import React from "react";
 import Withdraw from "./withdraw";
 import fetchMock from "jest-fetch-mock";
@@ -19,7 +19,7 @@ describe("WithdrawSucceeds", () => {
     fireEvent.click(screen.getByPlaceholderText("10"), {
       target: { value: 100 },
     });
-    fireEvent.click(screen.getByText("Withdraw"));
+    await act(() => fireEvent.click(screen.getByText("Withdraw")));
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(
       await screen.findByText(
@@ -36,12 +36,28 @@ describe("WithdrawFailsDueToServiceError", () => {
     fireEvent.click(screen.getByPlaceholderText("10"), {
       target: { value: 50 },
     });
-    fireEvent.click(screen.getByText("Withdraw"));
+    await act(() => fireEvent.click(screen.getByText("Withdraw")));
     expect(fetch).toHaveBeenCalledTimes(1);
     expect(
       await screen.findByText(
         "An unexpected error occurred. Please try again after some time."
       )
     ).toBeInTheDocument();
+  });
+});
+
+describe("WithdrawFailsDueToUnauthorizedMethod", () => {
+  it("user is unable to withdraw amount with get request", async () => {
+      fetch.mockResponseOnce(JSON.stringify({}, {
+          status: 405,
+          headers: { 'content-type': 'application/json' },
+          body: {}
+      }));
+    render(<Withdraw />);
+    fireEvent.click(screen.getByPlaceholderText("10"), {
+      target: { value: 50 },
+    });
+    await act(() => fireEvent.click(screen.getByText("Withdraw")));
+    expect(fetch).toHaveBeenCalledTimes(1);
   });
 });

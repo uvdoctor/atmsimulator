@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { revalidate } from '@module-federation/nextjs-mf/utils';
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Inter } from "next/font/google";
@@ -10,8 +9,8 @@ import styles from "@/styles/Home.module.css";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import { useAuth } from "@/context/AuthContext";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "@/components/header";
+import { ErrorBoundary } from 'next/dist/client/components/error-boundary';
 
 interface DashboardProps {
   isProduction: boolean
@@ -42,7 +41,7 @@ export default function Dashboard({ isProduction }: DashboardProps) {
   }
   
   return (
-      <main className={`${styles.main} ${inter.className}`}>
+      <main>
           {/* <div className={styles.description}>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -73,13 +72,17 @@ export default function Dashboard({ isProduction }: DashboardProps) {
           /> 
           
         </div> */}
-        <div className={styles.grid}>
-        <BalanceButton />
+      <Header />
+      <div className={styles.center}>
+       
+          <BalanceButton />
+        <br/><br/>
           <CashButton />
-        </div>
-          <button className={styles.card} onClick={handleDone}>
+        <br/><br/>
+          <button className="button" onClick={handleDone}>
             <h2>Done</h2>
-          </button>
+        </button>
+        </div>
         {/* @ts-ignore */}
         {isProduction && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
       </main>

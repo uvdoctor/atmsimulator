@@ -1,5 +1,6 @@
 :root {
-  --max-width: 1100px;
+  --max-width: 800px;
+  --max-height: 600px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
@@ -95,13 +96,26 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-a {
-  color: inherit;
+.button {
+  background-color: #04AA6D;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
   text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.error {
+  color: red;
 }

@@ -1,11 +1,9 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
-import { Inter } from "next/font/google";
 //@ts-ignore
 import styles from "@/styles/Home.module.css";
 import Login from '@/components/login';
 import Head from 'next/head';
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from '@/components/header';
 
 interface HomeProps {
   isProduction: boolean
@@ -26,9 +24,11 @@ export default function Home({ isProduction }: HomeProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <h2 className={styles.description}>Welcome to MyBank ATM</h2>
-        <Login /> 
+      <main>
+        <Header />
+        <div className={styles.center}>
+          <Login /> 
+        </div>
         {/* @ts-ignore */}
         {isProduction && <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />}
       </main>

@@ -45,14 +45,16 @@ export default function Login() {
     }
     
     return (
-        <div>
-            <p>Please enter the pin for accessing your bank account</p>
+        <>
+            <label>Please enter bank account pin</label>
             <form onSubmit={handleSubmit}>
                 <input type="hidden" name="username" value="1"  />
                 <input type="text" name="pin" placeholder="Pin" required autoComplete="off" />
-                <p><button type="submit" disabled={buttonDisabled}>Login</button></p>
+                <br/>
+                <label className="error">{errorText}</label>
+                <br/><br/><button type="submit" disabled={buttonDisabled} className="button">Login</button>
             </form>
-            <p>{errorText}</p>
-        </div>
+            
+        </>
     );
 }
