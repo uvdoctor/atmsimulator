@@ -8,9 +8,9 @@ Here are the key factors influencing the approach:
 
 **_Customer_**
 
-- Customer can get personalized and intelligent experiences in real-time with no planned downtime using MFE architecture.
+- Customer can get personalized and intelligent experiences in real-time (no planned downtime needed) using MFE architecture.
 
-- SSR helps to support various legacy browsers across existing ATMs while using latest React and other libraries given that UI processing happens on server-side using NodeJS.
+- SSR helps to support various legacy browsers across existing ATMs while using latest React and other libraries on server-side as HTML is rendered on server-side and sent across to the client by NextJS framework.
 
 **_Agility_**
 
