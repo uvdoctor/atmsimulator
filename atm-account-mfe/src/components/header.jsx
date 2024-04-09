@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <div className={styles.main}>
             <Logo />
-            <h2 className={styles.description}>MyBank Oxford Branch ATM</h2>
+            <h2 className={styles.description}>MyBank ATM</h2>
        </div>
    ) 
 }
