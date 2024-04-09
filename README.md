@@ -7,8 +7,10 @@ Uses Micro-frontend (MFE) architecture using NextJS Server-side rendering (SSR) 
 Here are the key factors influencing the approach:
 
 **_Customer_**
-Customer can get personalized and intelligent experiences in real-time with no planned downtime using MFE architecture.
-SSR helps to support various legacy browsers across existing ATMs while using latest React and other libraries given that UI processing happens on server-side using NodeJS.
+
+- Customer can get personalized and intelligent experiences in real-time with no planned downtime using MFE architecture.
+
+- SSR helps to support various legacy browsers across existing ATMs while using latest React and other libraries given that UI processing happens on server-side using NodeJS.
 
 **_Agility_**
 
