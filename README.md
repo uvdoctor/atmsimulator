@@ -33,7 +33,9 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 
 ## <a name="benefits">Benefits</a>
 
-**_Customer_**
+There are major benefits for better customer experience, improved agility, lower maintenance cost, improved security and better colleague experience.
+
+**_1. Better customer experience_**
 
 - Customer can get personalized and intelligent experiences in real-time (no planned downtime needed).
 
@@ -41,7 +43,7 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 
 - Features can be selectively disabled depending on known issues. For instance, if a cash dispenser of a particular ATM isn't working, then cash withdrawal feature would be disabled just for that ATM. This provides a relatively better customer experience as the customer can be proactively informed about the concerned problem.
 
-**_Agility_**
+**_2. Improved agility_**
 
 - Every component can be independently developed, tested, deployed and released even during business hours.
 
@@ -49,17 +51,17 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 
 - By differentiating between deployment and release, business can have required flexibility to release features for different components progressively to a certain group of friendly customers for early feedback.
 
-**_Cost_**
+**_3. Lower maintenance cost_**
 
 - SSR helps to support various legacy browsers across existing ATMs while using latest React and other libraries on server-side as HTML is rendered on server-side and sent across to the client. This relaxes the need for browser upgrades to support modern web capabilities.
 
 - Every component can be made brand-agnostic with support for dynamic theming through the shell so that appropriate branding is done consistenly across all components by changing theme once in the shell.
 
-**_Security_**
+**_4. Improved security_**
 
 - Vulnerabilities can be identified for various components, and only those components can be upgraded.
 
-**_Colleagues_**
+**_5. Better colleague experience_**
 
 ## <a name="downsides">Downsides and possible remediations</a>
 
