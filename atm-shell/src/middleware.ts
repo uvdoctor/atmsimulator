@@ -2,12 +2,12 @@ import type { NextRequest } from 'next/server'
  
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const validPaths = ['/', '/dashboard', '/checkbalance', '/withdrawcash']
+  const validPaths = ['/', '/dashboard', '/checkbalance', '/withdrawcash', '/favicon.ico']
   if (!validPaths.includes(pathname)) {
     return Response.redirect(new URL('/', request.url))
   }
   const currentUser = request.cookies.get('token')?.value;
-  if (!currentUser && pathname !== '/') {
+  if (!currentUser && pathname !== '/' && pathname !== '/favicon.ico') {
     return Response.redirect(new URL('/', request.url));
   }  
   if (pathname == '/checkbalance') {
