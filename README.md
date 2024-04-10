@@ -6,6 +6,12 @@
 
 <a href="#downsides">Downsides and possible remediations</a>
 
+<a href="#strategic">Strategic recommendation for ATM related services</a>
+
+<a href="#practices">Engineering practices should be / have been followed</a>
+
+<a href="#run">Run the code locally</a>
+
 ## <a name="approach">High-level approach</a>
 
 This simulator uses Micro-frontend (MFE) architecture using NextJS Server-side rendering (SSR) and Webpack dynamic module federation so that MFEs are loaded in the browser dynamically depending on customer need.
@@ -55,13 +61,13 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 
 **_Colleagues_**
 
-## <a href="downsides">Downsides and possible remediations</a>
+## <a name="downsides">Downsides and possible remediations</a>
 
-## What is the strategic recommendation for modern frictionless customer experience for ATM related services?
+## <a name="strategic">Strategic recommendation for ATM related services</a>
 
 Strategic recommendation for modern frictionless customer experience is move to virtual ATMs (supported through existing networks and cash provider networks for cash withdrawal and deposit) rather than physical ATMs. Required authentication can be done via mobile app. This will be win-win considering better customer experience and convenience, and cost reduction due to requirement of a much lower footprint of physical ATMs.
 
-## Which engineering practices should be / have been followed?
+## <a name="practices">Engineering practices should be / have been followed</a>
 
 **_Engineer_**
 
@@ -69,4 +75,4 @@ Strategic recommendation for modern frictionless customer experience is move to 
 
 **_Operate_**
 
-## How can I run the code locally?
+## <a name="run">Run the code locally</a>
