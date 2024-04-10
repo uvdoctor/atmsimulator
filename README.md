@@ -51,6 +51,8 @@ There are major benefits for better customer experience, improved agility, lower
 
 - By differentiating between deployment and release, business can have required flexibility to release features for different components progressively to a certain group of friendly customers for early feedback.
 
+- Risk-based testing practices can be followed so that each MFE change can be validated based on the underlying risk of that change for the specific component rather than regression testing every change for the entire application. Also, every MFE can be spun up independently in a browser without the need of shell. Such practices can drastically automate testing and reduce the time needed for validating component-level changes.
+
 **_3. Lower maintenance cost_**
 
 - Every component can be independently changed (with appropriate guardrails) and monitored for troubleshooting.
@@ -63,6 +65,8 @@ There are major benefits for better customer experience, improved agility, lower
 
 - Vulnerabilities can be identified for various components, and only those components can be upgraded.
 
+- As ReactJS and other Javascript libraries are executed on the server side, this reduces the scope of Cross-site scripting attacks (XSS)
+
 **_5. Better colleague experience_**
 
 - Scrum teams are empowered to change and release components thereby giving better control, accountability and visibility of customer outcomes.
@@ -70,6 +74,10 @@ There are major benefits for better customer experience, improved agility, lower
 - Colleagues can deploy changes frequently even during business hours with real-time updates to customers. Hence, this obviates the need for weekend releases.
 
 - As frequent deployments and releases enable early customer feedback, colleagues get a much better and shorter feedback loop thereby reducing the risk of developing something that's not useful for customers, and increases the probability of much better customer impact.
+
+- Each MFE can be managed independently by a team thereby reducing cross-team dependencies and coordination effort.
+
+- Teams can adopt new libraries that they want to innovate with or are comfortable with, without burdening expectations from other teams. To demonstrate this in the solution, the shell projects uses Typescript while other projects don't use it.
 
 ## <a name="downsides">Downsides and possible remediations</a>
 
@@ -81,9 +89,17 @@ Strategic recommendation for modern frictionless customer experience is move to 
 
 **_Engineer_**
 
-- Better code quality using automated static analysis, shift-left test automation & coverage reports, vulnerability scanning, etc. Test automation can do most of validation as a part of CI pipeline using a combination of unit tests, integration tests, snapshot tests, accessibility tests, etc. (partially implemented)
+- Behaviour driven development (BDD) practices for ensuring that implementation aligns with acceptance criteria mentioned in the requirements
+
+- Better code quality using automated static analysis, shift-left test automation & coverage reports, vulnerability scanning, etc.
+
+- Shift-left test automation can do most of validation as a part of check-in and CI pipeline using a combination of unit tests with mocking, integration tests, contract tests, snapshot tests, accessibility tests, cross-browser tests, etc. (partially implemented - unit tests with mocking for some parts of the codebase)
+
+- Documentation of how to use reusable components through storybook scenarios
 
 - In case of self-hosting, Content Delivery Network (CDN) can be used for global and efficient delivery of static content. Automated horizontal scaling can be used for API with blue/green support. Another self-hosting option could be to use hybrid model with containers for frequently used services like account balance, while serverless architecture for certain features (eg: cash deposit, withdrawal, etc) that are used relatively lesser. The back-end infrastructure can be fronted by an API gateway with routing, middleware, authentication, etc.
+
+- Relevant documentation through comments in code as well as automated test scenarios and assertions
 
 **_Protect_**
 
@@ -105,4 +121,24 @@ Strategic recommendation for modern frictionless customer experience is move to 
 
 - Automated user behaviour insights using analytics (partially implemented)
 
+- Secret management through a vault solution, which is integrated with CD pipeline
+
+- Different property files for different environments so that its easy to change values for an environment
+
+- Resiliency through MFE architecture supplemented with React ErrorBoundary so that blast radius of errors is properly contained with fallback experience that can be displayed to customers
+
+- Clearly defined API contracts, which are a part of well-documented service catalogue with service owners, RTO, RPO, etc
+
 ## <a name="run">Run the code locally</a>
+
+- Ensure that required dependencies such as NodeJS, NPM, etc are installed
+
+- Checkout the project locally
+
+- Run "npm install" for every project so that required dependency modules are downloaded
+
+- Run "npm run dev" for running project in development environment
+
+- Run "npm run build" for optimized project build for production, and then "npm run start" for production deployment
+
+- Run automated testing using "npm run test"
