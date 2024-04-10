@@ -8,7 +8,7 @@
 
 <a href="#strategic">Strategic recommendation for ATM related services</a>
 
-<a href="#practices">Engineering practices should be / have been followed</a>
+<a href="#practices">Best practices should be / have been followed</a>
 
 <a href="#run">Run the code locally</a>
 
@@ -85,7 +85,7 @@ There are major benefits for better customer experience, improved agility, lower
 
 Strategic recommendation for modern frictionless customer experience is move to virtual ATMs (supported through existing networks and cash provider networks for cash withdrawal and deposit) rather than physical ATMs. Required authentication can be done via mobile app. This will be win-win considering better customer experience and convenience, and cost reduction due to requirement of a much lower footprint of physical ATMs.
 
-## <a name="practices">Engineering practices should be / have been followed</a>
+## <a name="practices">Best practices should be / have been followed</a>
 
 **_Engineer_**
 
@@ -103,9 +103,9 @@ Strategic recommendation for modern frictionless customer experience is move to 
 
 **_Protect_**
 
-- Mutual TLS v1.3 for client and server identity, and protecting data in transit
+- Mutual TLS v1.3 certificates for client and server identity, and to protect data in transit
 
-- AES-256-GCM for protecting data at rest (partially implemented)
+- AES-256-GCM for protecting sensitive data at rest (partially implemented for atm pin)
 
 - Salted password hashes to reduce risk of password data hacks
 
