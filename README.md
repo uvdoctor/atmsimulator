@@ -1,5 +1,9 @@
 # ATM Simulator UI
 
+<a href="#approach">High-level approach</a>
+
+## <a name="approach">High-level approach</a>
+
 This simulator uses Micro-frontend (MFE) architecture using NextJS Server-side rendering (SSR) and Webpack dynamic module federation so that MFEs are loaded in the browser dynamically depending on customer need.
 
 MFEs integrate with NextJS edge middleware (which executes before request is processed by APIs), and various APIs implemented using NodeJS. The solution can currently be deployed on localhost only, and uses managed hosting capability of NextJS. It can also be self-hosted.
@@ -29,19 +33,17 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 
 **_Agility_**
 
-- Every component can be independently developed, tested, deployed and released to all / selected set of customers using feature toggles.
+- Every component can be independently developed, tested, deployed and released even during business hours.
 
 - Components can be deployed through a standard change process with smart governance controls so that production deployments happen at the end of every sprint.
 
 - By differentiating between deployment and release, business can have required flexibility to release features for different components progressively to a certain group of friendly customers for early feedback.
 
-- Styling can be updated consistently across all components to incorporate brand related styling upgrades.
-
 **_Cost_**
 
 - SSR helps to support various legacy browsers across existing ATMs while using latest React and other libraries on server-side as HTML is rendered on server-side and sent across to the client. This relaxes the need for browser upgrades to support modern web capabilities.
 
-- Every component is brand-agnostic and can support dynamic theming through the shell so that appropriate brand theming is done consistenly across all components.
+- Every component can be made brand-agnostic with support for dynamic theming through the shell so that appropriate branding is done consistenly across all components by changing theme once in the shell.
 
 **_Security_**
 
@@ -52,6 +54,8 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 ## What are the downsides and possible remediations of this approach?
 
 ## What is the strategic recommendation for modern frictionless customer experience for ATM related services?
+
+Strategic recommendation for modern frictionless customer experience is move to virtual ATMs (supported through existing networks and cash provider networks for cash withdrawal and deposit) rather than physical ATMs. Required authentication can be done via mobile app. This will be win-win considering better customer experience and convenience, and cost reduction due to requirement of a much lower footprint of physical ATMs.
 
 ## Which engineering practices should be / have been followed?
 
