@@ -1,7 +1,9 @@
 # ATM Simulator UI
 
 <a href="#approach">High-level approach</a>
+
 <a href="#benefits">Benefits</a>
+
 <a href="#downsides">Downsides and possible remediations</a>
 
 ## <a name="approach">High-level approach</a>
