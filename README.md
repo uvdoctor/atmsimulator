@@ -1,6 +1,8 @@
 # ATM Simulator UI
 
 <a href="#approach">High-level approach</a>
+<a href="#benefits">Benefits</a>
+<a href="#downsides">Downsides and possible remediations</a>
 
 ## <a name="approach">High-level approach</a>
 
@@ -21,7 +23,7 @@ atm-header-mfe project implements the header, which is leveraged by the shell an
 **_Account-MFE:_**
 atm-account-mfe project implements account balance and cash withdrawal menu items as well as related features and API. Other account related features can also be implemented in the future in this project.
 
-## What are the benefits of this approach?
+## <a name="benefits">Benefits</a>
 
 **_Customer_**
 
@@ -51,7 +53,7 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 
 **_Colleagues_**
 
-## What are the downsides and possible remediations of this approach?
+## <a href="downsides">Downsides and possible remediations</a>
 
 ## What is the strategic recommendation for modern frictionless customer experience for ATM related services?
 
