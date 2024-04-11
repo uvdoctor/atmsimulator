@@ -14,11 +14,13 @@
 
 ## <a name="approach">High-level approach</a>
 
-This simulator uses Micro-frontend (MFE) architecture using NextJS Server-side rendering (SSR) and Webpack dynamic module federation so that MFEs are loaded in the browser dynamically depending on customer need. This also allows MFEs to be upgraded in real-time without the need for redeploying other dependent MFEs / shell.
+The solution assumes that a browser can be packaged securely within an ATM, and hence relies on web application for UI.
+
+This simulator uses Micro-frontend (MFE) architecture using NextJS Server-side rendering (SSR) and Webpack dynamic module federation so that MFEs are loaded in the browser dynamically depending on customer and business need. This also allows MFEs to be upgraded in real-time without the need for redeploying other dependent MFEs / shell.
 
 MFEs integrate with NextJS edge middleware (which executes before request is processed by APIs), and various APIs implemented using NodeJS. The solution can currently be deployed on localhost only, and uses managed hosting capability of NextJS. It can also be self-hosted.
 
-The MFEs are split based on reusable functionality and business domain such as Account, and managed independently by scrum teams such that no MFE ownership spans across teams. New MFEs can also be integrated as needed for other business domains such as Billing, Servicing, Marketing, etc.
+The MFEs are split based on reusable functionality (eg: Header) and business domain (eg: Account), and managed independently by scrum teams such that no MFE ownership spans across teams. New MFEs can also be integrated as needed for other business domains such as Billing, Servicing, Marketing, etc.
 
 Here are the major components of this solution:
 
@@ -164,3 +166,11 @@ Strategic recommendation for modern frictionless customer experience is move to 
 - Run "npm run build" for optimized project build for production, and then "npm run start" for production deployment
 
 - Run automated testing using "npm run test"
+
+The shell and MFEs have been configured on different ports as mentioned below. HTTPS hasn't been implemented so that its easier to check out and run the project without the need for certificate store and certificates on local machine. However, HTTPS using TLS 1.3 would be highly recommended.
+
+Shell: http://localhost:3000
+
+Account MFE: http://localhost:3001
+
+Header MFE: http://localhost:3002
