@@ -3,7 +3,8 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import styles from "@/styles/Home.module.css";
 import Login from '@/components/login';
 import Head from 'next/head';
-import Header from '@/components/header';
+//@ts-ignore
+import Header from 'header/headerwithlogo';
 
 interface HomeProps {
   isProduction: boolean

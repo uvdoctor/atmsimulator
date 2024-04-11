@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "@/styles/Header.module.css";
 import Logo from "@/components/logo";
 
-export default function Header() {
+export default function HeaderWithLogo() {
     return (
         <div className={styles.main}>
             <Logo />

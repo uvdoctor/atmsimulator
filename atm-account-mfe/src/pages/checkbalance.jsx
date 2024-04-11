@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import Balance from "@/components/balance";
-import Header from "@/components/header";
+import Header from "header/headerwithlogo";
 import TransactAgain from '@/components/transactagain';
   
 export default function CheckBalance() {

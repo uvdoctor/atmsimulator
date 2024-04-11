@@ -26,6 +26,7 @@ const nextConfig = {
         name: 'shell',
         remotes: {
           account: `account@${process.env.ACCOUNT_MFE_URL}/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+          header: `header@${process.env.HEADER_MFE_URL}/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`
         },
         filename: 'static/chunks/remoteEntry.js',
         exposes: {},

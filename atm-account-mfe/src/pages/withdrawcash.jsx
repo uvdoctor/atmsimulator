@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Withdraw from "@/components/withdraw";
-import Header from "@/components/header";
+import Header from "header/headerwithlogo";
 import styles from "@/styles/Home.module.css";
 
 export default function WithdrawCash() {

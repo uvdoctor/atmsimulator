@@ -12,7 +12,7 @@ const nextConfig = {
       remotes: {},
       filename: 'static/chunks/remoteEntry.js',
       exposes: {
-        './header': '@/components/header',
+        './headerwithlogo': '@/components/headerwithlogo',
       },
       shared: {
       },

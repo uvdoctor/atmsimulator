@@ -15,6 +15,9 @@ const nextConfig = {
         './balancebutton': '@/components/balancebutton',
         './cashbutton': '@/components/cashbutton'
       },
+      remotes: {
+        header: `header@${process.env.HEADER_MFE_URL}/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`
+      },
       shared: {
       },
       extraOptions: {
