@@ -14,11 +14,11 @@
 
 ## <a name="approach">High-level approach</a>
 
-This simulator uses Micro-frontend (MFE) architecture using NextJS Server-side rendering (SSR) and Webpack dynamic module federation so that MFEs are loaded in the browser dynamically depending on customer need.
+This simulator uses Micro-frontend (MFE) architecture using NextJS Server-side rendering (SSR) and Webpack dynamic module federation so that MFEs are loaded in the browser dynamically depending on customer need. This also allows MFEs to be upgraded in real-time without the need for redeploying other dependent MFEs / shell.
 
 MFEs integrate with NextJS edge middleware (which executes before request is processed by APIs), and various APIs implemented using NodeJS. The solution can currently be deployed on localhost only, and uses managed hosting capability of NextJS. It can also be self-hosted.
 
-The MFEs are split based on reusable functionality and business domain such as Account. New MFEs can also be integrated as needed for other business domains such as Billing, Servicing, Marketing, etc.
+The MFEs are split based on reusable functionality and business domain such as Account, and managed independently by scrum teams such that no MFE ownership spans across teams. New MFEs can also be integrated as needed for other business domains such as Billing, Servicing, Marketing, etc.
 
 Here are the major components of this solution:
 
@@ -33,15 +33,17 @@ atm-account-mfe project implements account balance and cash withdrawal menu item
 
 ## <a name="benefits">Benefits</a>
 
-There are major benefits for better customer experience, improved agility, lower maintenance cost, improved security and better colleague experience.
+There are major benefits such as better customer experience, improved agility, faster innovation, lower Total Cost of Ownership (TCO), improved security and better colleague experience.
 
 **_1. Better customer experience_**
 
-- Customer can get personalized and intelligent experiences in real-time (no planned downtime needed) with frequent upgrades for progressively better experience.
+- MFEs with SSR can be personalized by customer / ATM as response can be dynamically generated on server side, thereby providing more relevant and personalized customer experience
+
+- Customer can get real-time (no planned downtime needed) and frequent upgrades for progressively better experience.
 
 - Even if a particular MFE has issue, other MFEs can continue working so that customers can continue using other features.
 
-- Features can be selectively disabled depending on known issues. For instance, if a cash dispenser of a particular ATM isn't working, then cash withdrawal feature would be disabled just for that ATM. This provides a relatively better customer experience as the customer can be proactively informed about the concerned problem.
+- Features can be selectively disabled for a customer / ATM depending on known issues. For instance, if a cash dispenser of a particular ATM isn't working, then cash withdrawal feature would be disabled just for that ATM. This provides a relatively better customer experience as the customer can be proactively informed about the concerned problem.
 
 **_2. Improved agility_**
 
@@ -53,21 +55,31 @@ There are major benefits for better customer experience, improved agility, lower
 
 - Risk-based testing practices can be followed so that each MFE change can be validated based on the underlying risk of that change for the specific component rather than regression testing every change for the entire application. Also, every MFE can be spun up independently in a browser without the need of shell. Such practices can drastically automate testing and reduce the time needed for validating component-level changes.
 
-**_3. Lower maintenance cost_**
+**_3. Faster innovation_**
 
-- Every component can be independently changed (with appropriate guardrails) and monitored for troubleshooting.
+- A team can independently experiment and leverage recent innovations in the fast-paced web development space for independent MFEs, without impacting other teams and the overall application (considering guardrails are followed).
+
+- Reusable components can be easily shared through MFE architecture thereby spreading innovation and best practices quickly across different projects.
+
+**_4. Lower Total Cost of Ownership (TCO)_**
+
+- MFEs can be reused across different channels (assuming those channels have been enabled for MFE architecture) and brands, thereby reducing total cost of ownership in the long-term.
+
+- Every component can be independently changed (with appropriate guardrails) without need for retesting the entire application.
 
 - SSR helps to support various legacy browsers across existing ATMs while using latest React and other libraries on server-side as HTML is rendered on server-side and sent across to the client. This relaxes the need for browser upgrades to support modern web capabilities.
 
 - Every component can be made brand-agnostic with support for dynamic theming through the shell so that appropriate branding is done consistenly across all components by changing theme once in the shell.
 
-**_4. Improved security_**
+**_5. Improved security_**
 
 - Vulnerabilities can be identified for various components, and only those components can be upgraded.
 
 - As ReactJS and other Javascript libraries are executed on the server side, this reduces the scope of Cross-site scripting attacks (XSS)
 
-**_5. Better colleague experience_**
+- API endpoints can be rewritten through middleware, thereby masking the actual endpoints used in the code running in browser.
+
+**_6. Better colleague experience_**
 
 - Scrum teams are empowered to change and release components thereby giving better control, accountability and visibility of customer outcomes.
 
@@ -115,7 +127,7 @@ Strategic recommendation for modern frictionless customer experience is move to 
 
 **_Operate_**
 
-- Observability using Open Telemetry for static content and APIs
+- Full stack observability, including monitoring, for proactive troubleshooting
 
 - Automated pipeline for delivering changes with appropriate guardrails (partially implemented for localhost dev and prod)
 
