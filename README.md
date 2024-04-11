@@ -93,6 +93,16 @@ There are major benefits such as better customer experience, improved agility, f
 
 ## <a name="downsides">Downsides and possible remediations</a>
 
+This architecture also has some downsides, which can be remediated to a large extent as mentioned below:
+
+**_1. Increased server cost:_** Due to SSR, NodeJS servers need to be provisioned, maintained and scaled. Hence this leads to more server processing related cost compared to Client-side rendering (CSR) which is used in Single Page Application (SPA). However, this cost is insignificant given that browser upgrades can be minimized on ATMs, while still using latest web development related features, security and innovation on server side.
+
+**_2. Lower run-time performance:_** As MFEs are loaded on-demand, this can potentially lead to lower performance compared to CSR as no network trip is involved. However, given lower bundle size of each MFE and simpler rendering requirements for ATMs, this isn't much of a concern.
+
+**_3. Increased operational complexity:_** Given that every MFE can be independently deployed and released, this increases the operational complexity for managing various MFEs. However, this can be mitigated through extensive automation across SDLC (testing, CI/CD, observability, etc).
+
+**_4. Increased learning curve:_** An organization may not have teams that are skilled with SSR and MFE architecture. Hence, it will require some investment and time to adopt this architecture. However, this will also lead to better overall quality of web development and fit-for-purpose architecture as teams will be able to apply CSR and/or SSR & MFE architecture depending on use cases.
+
 ## <a name="strategic">Strategic recommendation for ATM related services</a>
 
 Strategic recommendation for modern frictionless customer experience is move to virtual ATMs (supported through existing networks and cash provider networks for cash withdrawal and deposit) rather than physical ATMs. Required authentication can be done via mobile app. This will be win-win considering better customer experience and convenience, and cost reduction due to requirement of a much lower footprint of physical ATMs.
