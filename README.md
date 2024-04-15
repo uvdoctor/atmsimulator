@@ -47,6 +47,8 @@ There are major benefits such as better customer experience, improved agility, f
 
 - Features can be selectively disabled for a customer / ATM depending on known issues. For instance, if a cash dispenser of a particular ATM isn't working, then cash withdrawal feature would be disabled just for that ATM. This provides a relatively better customer experience as the customer can be proactively informed about the concerned problem.
 
+- Customers can get a more personalized experience through readily available internalization framework supported by NextJS, which can automatically forward the request to another path or domain depending on the locale (based on Accept-Language in the header)
+
 **_2. Improved agility_**
 
 - Every component can be independently developed, tested, deployed and released even during business hours.
